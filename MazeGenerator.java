@@ -194,94 +194,42 @@ public class MazeGenerator {
 		}
 	}
 
-	public static void placeRandomFires(int num){
-		Random rand = new Random();
-		int num_walls = num;
-		int counter = 0;
-		while (counter < num_walls) {
-			int y = (rand.nextInt(height-3))+1;
-			int x = (rand.nextInt(width-3))+1;
-			if (maze[y][x].type == ROOM
-					&& (y%2==1 && x%2==1)) {
-				maze[y][x].type = FIRE;
-				counter++;
-			}
-		}
-	}
-
-	public static ArrayList<Node> findPath(int x, int y) {
-		ArrayList<Node> neighbors = new ArrayList<>();
-		if (x > 2) {
-			if (maze[y][x-1].isOpen() && maze[y][x-2].type!=FIRE) {
-				neighbors.add(maze[y][x-2]);
-			}
-		}
-
-		if (x < width-3) {
-			if (maze[y][x+1].isOpen() && maze[y][x+2].type!=FIRE) {
-				neighbors.add(maze[y][x+2]);
-			}
-		}
-
-		if (y > 2) {
-			if (maze[y-1][x].isOpen() && maze[y-2][x].type!=FIRE) {
-				neighbors.add(maze[y-2][x]);
-			}
-		}
-
-		if (y < height-3) {
-			if (maze[y+1][x].isOpen()&& maze[y+2][x].type!=FIRE) {
-				neighbors.add(maze[y+2][x]);
-			}
-		}
-		return neighbors;
-	}
-
-	public static void generatePaths(){
-		Queue<Node> queue = new LinkedList<>();
-		maze[1][width-2].dist = 0;
-		maze[height-2][1].dist = 0;
-		queue.add(maze[1][width-2]);
-		queue.add(maze[height-2][1]);
-		Node curr = null;
-
-		while( !queue.isEmpty() ){
-			curr = queue.remove();
-			ArrayList<Node> neighbors = findPath(curr.x,curr.y);
-			for( int i = 0; i< neighbors.size(); i++){
-				Node neighb = neighbors.get(i);
-				if(neighb.dist == -1){
-					neighb.dist = curr.dist + 1;
-					queue.add(neighb);
-				}
-			}
-		}
-	}
-
-	public static void printPath() {
+	public static void printMazeOneLine() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				if(maze[y][x].isOpen() && maze[y][x].type!=DOOR){
-					System.out.print(maze[y][x].dist+"\t");
-				}else {
-					System.out.print("\t");
+				String out = " ";
+				switch(maze[y][x].type){
+					case WALL:
+						out = WALL+" ";
+						break;
+					case DOOR:
+						out = DOOR+" ";
+						break;
+					case ROOM:
+						out = ROOM+" ";
+						break;
+					case HUMAN:
+						out = HUMAN+" ";
+						break;
+					case FIRE:
+						out = FIRE+" ";
+						break;
+					case BLOCKED:
+						out = BLOCKED+" ";
+						break;
 				}
+				System.out.print(out);
 			}
-			System.out.println();
 		}
+		System.out.println(" ");
 	}
 
 	public static void main(String[] args) {
 		if(args.length==3){
 			generateMaze(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
 			removeRandomWalls(Integer.parseInt(args[2]));
-			printMaze();
-			placeRandomFires(4);
-			System.out.println();
-			printMaze();
-			System.out.println();
-			generatePaths();
-			printPath();
+			//printMaze();
+			printMazeOneLine();
 		}
 	}
 }
