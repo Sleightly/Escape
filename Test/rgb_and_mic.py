@@ -1,36 +1,37 @@
+#coding: utf-8
 #clock = GPIO 38
 #latch = GPIO 40
 #data = GPIO 36
 import RPi.GPIO as IO         # calling for header file which helps us use GPIO’s of PI
 import time                             # calling for time to provide delays in program
-console.log("BEGINNING")            
+print("BEGINNING")            
 IO.setmode(IO.BCM)        # programming the GPIO by BCM pin numbers. (like PIN29 as‘GPIO5’)
 IO.setup(38,IO.OUT)       # clock # initialize GPIO Pins as an output.
 IO.setup(40,IO.OUT)       # latch
 IO.setup(36,IO.OUT)       # data
-console.log("finished setup")
+print("finished setup")
 IO.output(36, 0)
 IO.output(38, 0)
 IO.output(40, 0)
-console.log("about to start code")
+print("about to start code")
 time.sleep(1)
 IO.output(36,1)  
-console.log("data is high")
+print("data is high")
 time.sleep(1)
 IO.output(38, 1)
-console.log("clock is high")
+print("clock is high")
 time.sleep(1)
 IO.output(38, 0)
-console.log("clock is low")
+print("clock is low")
 time.sleep(1)
 IO.output(40, 1)
-console.log("latch is high")
+print("latch is high")
 time.sleep(1)
 IO.output(36, 0)
-console.log("data is low")
+print("data is low")
 time.sleep(1)
 IO.output(40, 0)
-console.log("latch is low")
+print("latch is low")
 time.sleep(1)
 
 
