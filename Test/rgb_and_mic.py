@@ -88,8 +88,21 @@ if __name__ == "__main__":
     red()
     submit()
 
-    time.sleep(10)
+    time.sleep(5)
+    reset()
 
+    print("fire in top two rooms")# putting in one set of 24 values
+    off()
+    off()
+    red()
+    off()
+    green()
+    red()
+    off()
+    off()
+    submit()
+
+    time.sleep(5)
     reset()
 
     print("fire in three rooms, trapped person in top left")# putting in one set of 24 values
@@ -102,18 +115,7 @@ if __name__ == "__main__":
     off()
     off()
     submit()
-
-    time.sleep(10)
+    time.sleep(5)
     reset()
 
-    print("random lights")# putting in one set of 24 values
-    blue()
-    red()
-    red() #all the other light are off?
-    green()
-    blue()
-    blue()
-    green()
-    red()
-    submit()
 
