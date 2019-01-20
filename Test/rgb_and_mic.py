@@ -14,6 +14,7 @@ blue = mraa.Gpio(34)
 blue.dir(mraa.DIR_OUT)
 blue.write(0)
 
+#Changes to each color every 5 seconds
 while True:
     red.write(1)
     time.sleep(5)
@@ -25,8 +26,8 @@ while True:
     time.sleep(5)
     blue.write(0)
 
+#Microphone. LED turns red when something is detected
 '''
-#Microphone
 mic = mraa.Gpio()
 mic.dir(mraa.DIR_IN)
 
