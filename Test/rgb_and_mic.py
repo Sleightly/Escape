@@ -39,7 +39,7 @@ def add0():
     IO.output(20, 0)
     time.sleep(0.5)
 
-def submit();
+def submit():
     IO.output(21, 1)
     print("latch is high")
     time.sleep(0.5)
