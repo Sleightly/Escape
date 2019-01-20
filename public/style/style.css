@@ -1,3 +1,19 @@
 h1 {
-    color:blue;
+  top: 50%;
+  left: 50%;
+  color:white;
+  transform: translate(50%,10%);
+  font-family: "Roboto", sans-serif;
+    /* background-color: red; */
   }
+
+body{
+  background-color: #fdfbfb;
+  background-image: linear-gradient(315deg, #fdfbfb 0%, #ebedee 74%);}
+/* .form {
+  color:#488448;
+}
+
+.map {
+
+} */
