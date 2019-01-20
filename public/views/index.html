@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <title>Escape</title>
   </head>
   <body>
-    <h1>Escape</h1>
-    <h4>Height: <input type="number" name="height"> </h4>
-    <h4>Width: <input type="number" name="width"> </h4>
+    <div id="topbackground">
+      <div>
+        <h1>Escape</h1>
+      </div>
+      <div>
+        <div>
+            <h3>Instructions</h3>
+            <ol>
+              <li>
+                Input the dimensions of the building
+              </li>
+              <li>
+                Click on the rooms and doors to change their status
+              </li>
+              <li>
+                Click Run Simulation to generate paths
+              </li>
+            </ol>
+          </div>
+        <form>
+          <h4>Height: <input type="number" name="height" value=0> </h4>
+          <h4>Width: <input type="number" name="width" value=0> </h4>
+          <input type="button" onclick="getDimensions()" value="Submit">
+        </form>
+      </div>
+    </div>
+    <div class="legend">
+    <div id="legend">
+      <h3 id="keyTitle">Key:</h3>
+      <div>
+          <canvas id = "blackKey"></canvas>
+          Wall
+      </div>
+      <div>
+          <canvas id = "whiteKey"></canvas>
+          Room
+      </div>
+      <div>
+          <canvas id = "blueKey"></canvas>
+          Human
+      </div>
+      <div>
+          <canvas id = "orangeKey"></canvas>
+          Fire
+      </div>
+      <div>
+          <canvas id = "greenKey"></canvas>
+          Door
+      </div>
+      <div>
+          <canvas id = "redKey"></canvas>
+          Blocked Door
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <canvas id="myCanvas">
+      </canvas>
+    </div>
+  </div>
+    <div>
+      <button id="simulationButton"> Run Simulation </button>
+    </div>
+
+    <script src="index.js"></script>
   </body>
 </html>

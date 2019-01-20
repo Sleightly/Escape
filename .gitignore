@@ -5,4 +5,5 @@ backend/a.xml
 backend/cough.wav
 backend/help.wav
 node_modules
+*.class
 

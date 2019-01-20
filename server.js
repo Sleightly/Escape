@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 1500
 var app = express();
 
 app.use(express.static(__dirname+'/public/views'));
-app.use(express.static(__dirname+'/public/styles'));
+app.use(express.static(__dirname+'/public/style'));
 app.use(express.static(__dirname+'/public/scripts'));
 app.use(express.static(__dirname+'/public/media'));
 
