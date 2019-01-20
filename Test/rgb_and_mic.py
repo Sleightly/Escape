@@ -9,13 +9,14 @@ IO.setmode(IO.BCM)        # programming the GPIO by BCM pin numbers.
 IO.setup(20,IO.OUT)       # clock # initialize GPIO Pins as an output.
 IO.setup(21,IO.OUT)       # latch
 IO.setup(16,IO.OUT)       # data
-
-while range(24):
+i = 0
+while (i < 24):
     print("reset values")
     IO.output(16, 0)
     IO.output(20, 1)
     time.sleep(1)
     IO.output(20, 0)
+    i = i + 1
 time.sleep(1)
 IO.output(21, 1)
 print("latch is high")
