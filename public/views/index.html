@@ -9,13 +9,15 @@
       <h1>Escape</h1>
     </div>
     <div>
-      <h4>Height: <input type="number" name="height"> </h4>
-      <h4>Width: <input type="number" name="width"> </h4>
+      <form action= >
+        <h4>Height: <input type="number" name="height" value=0> </h4>
+        <h4>Width: <input type="number" name="width" value=0> </h4>
+        <input type="button" onclick="getDimensions()" value="Submit">
+      </form>
     </div>
     <div>
-      <canvas id="myCanvas" width="200" height="100"
+      <canvas id="myCanvas" width="" height=""
       style="border:1px solid #d3d3d3;">
-      Your browser does not support the canvas element.
       </canvas>
     </div>
 
