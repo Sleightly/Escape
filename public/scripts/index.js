@@ -20,8 +20,13 @@ var mouseClickX;
 var mouseClickY;
 
 function generateMaze() {
-    displayBorders();
-    //add code here
+    console.log("here")
+    $.ajax({
+      url : "/gen",
+      type: "POST",
+    }).done(function(data){
+        console.log(data)
+    })
 }
 
 function displayBorders() {
@@ -130,16 +135,12 @@ function runSimulation() {
       url : "/sim",
       type: "POST",
       data : {
-              data: data
+              data: arrayToString()
              },
       success: function(ret, textStatus, jqXHR)
       {
-        $("#points").text(data.points);
-        $("#name").text(data.out_name);
-        var theme = data.theme
-        var $nav = $('nav');
-        var curTheme = theme.replace(/([A-Z])/g, '-$1').toLowerCase() + "-bg";
-        $nav.addClass(curTheme);
+        data = stringToArray(ret.d)
+        displayColors()
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -162,7 +163,7 @@ function arrayToString() {
 function stringToArray(d) {
     var res = d.split(" ").filter(function () { return true });
     for (var i = 0; i < res; i++) {
-        d[i/data.length][i%data.length] = parseInt(res[i]);
+        data[i/data.length][i%data.length] = parseInt(res[i]);
     }
 }
 

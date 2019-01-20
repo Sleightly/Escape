@@ -1,7 +1,11 @@
 var http = require('http'),
     express = require('express'),
     path = require('path'),
-    spawn = require('child_process');
+    StringDecoder = require('string_decoder').StringDecoder;
+
+
+const execFile = require('child_process').execFile;
+var decoder = new StringDecoder('utf8');
 
 const PORT = process.env.PORT || 1500
 
@@ -16,13 +20,24 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+"/public/views", 'index.html'));
 })
 
-app.get('/gen', function(req, res){
-  
+app.post('/gen', function(req, res){
+	const child = execFile('MazeGenerator', ['10,10,10'], (error, stdout, stderr) => {
+	    if (error) {
+	        console.error('stderr', stderr);
+	        throw error;
+	    }
+	    console.log('stdout', stdout);
+	});
 })
 
 
-app.get('/sim', function(req, res){
-  
+app.post('/sim', function(req, res){
+	var input = req.body.input
+	var pro = spawn('java',["./PathGenerator.java", 
+                            input] ); 
+    pro.stdout.on('data', function(data) { 
+        res.send({d:data.toString()}); 
+    }) 
 })
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
