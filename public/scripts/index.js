@@ -130,7 +130,26 @@ function runSimulation() {
              },
       success: function(ret, textStatus, jqXHR)
       {
-        data = stringToArray(ret.d)
+        newdata = stringToArray(ret.d)
+        for (var i = 0; i < height; i++) {
+            for (var j = 0; j < width; j++) {
+                if(newdata[i][j]/3 < 1 && data[i][j] == 1) {
+                    data[i][j] = 10;
+                } 
+                else if(newdata[i][j]/6 < 1 && data[i][j] == 1) {
+                    data[i][j] = 11;
+                } 
+                else if(newdata[i][j]/9 < 1 && data[i][j] == 1) {
+                    data[i][j] = 12;
+                } 
+                else if(newdata[i][j]/12 < 1 && data[i][j] == 1) {
+                    data[i][j] = 13;
+                } 
+                else if(data[i][j] == 1) {
+                    data[i][j] = 14;
+                } 
+            }
+        }
         console.log(data)
         displayColors()
       },
