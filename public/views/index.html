@@ -6,23 +6,13 @@
     <title>Escape</title>
   </head>
   <body onload="displayBorders();">
-    <div class="parallax"></div>
-    <div id="topbackground">
-      <div>
+    <div class="parallax">
+      <div class="title">
         <h1>Escape</h1>
       </div>
+    </div>
+    <div id="topbackground">
       <div>
-        <div>
-            <h3>Instructions</h3>
-            <ol>
-              <li>
-                Click on the rooms and doors to change their status
-              </li>
-              <li>
-                Click Run Simulation to generate paths
-              </li>
-            </ol>
-          </div>
       </div>
     </div>
     <div class="legend">
@@ -61,7 +51,7 @@
     </div>
   </div>
     <div>
-      <button id="simulationButton"> Run Simulation </button>
+      <button id="simulationButton" onclick="runSimulation()"> Run Simulation </button>
     </div>
 
     <script src="index.js"></script>
