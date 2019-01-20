@@ -70,7 +70,7 @@ function displayColors(grid) {
             } else if (grid[i][j] == 4) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#e0fde0";
+                ctx.fillStyle = "#7fbf7f";
                 ctx.fill();
             } else if (grid[i][j] == 10) {
                 ctx.beginPath();
