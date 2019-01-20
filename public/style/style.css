@@ -1,5 +1,5 @@
 body {
-    background: #510001;
+    background-image: linear-gradient(#280000, #510001);
     opacity: 0.9;
 }
 h1 {
