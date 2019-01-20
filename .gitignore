@@ -1,7 +1,8 @@
-backend/training_images
-backend/test_images
-backend/models
-backend/bottleneck_data
-backend/tensorboard_logs
+backend/merge_cough
+backend/merge_help
+backend/merge_noise
+backend/a.xml
+backend/cough.wav
+backend/help.wav
 node_modules
 
