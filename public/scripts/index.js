@@ -20,7 +20,9 @@ var mouseClickX;
 var mouseClickY;
 
 function displayBorders() {
+    document.getElementById("simulationButton").style.visibility = "visible";
     canvas = document.getElementById("myCanvas");
+    canvas.style.visibility = "visible";
     canvas.height = height * factor;
     canvas.width = width * factor;
     displayLines();
@@ -119,7 +121,6 @@ function changeColor() {
 }
 
 function runSimulation() {
-
     $.ajax({
       url : "/sim",
       type: "POST",
@@ -154,14 +155,9 @@ function arrayToString() {
 }
 
 function stringToArray(d) {
-    var res = d.split(" ")
-    var output = ""
-    for (var i = 0; i < data.length; i++) {
-        for (var j = 0; j < data[i].length; j++) {
-            output += ""+data[i]+" "
-        }
+    var res = d.split(" ").filter(function () { return true });
+    for (var i = 0; i < res; i++) {
+        d[i/data.length][i%data.length] = parseInt(res[i]);
     }
-    output = output.substring(0, output.length - 1);
-    return output
 }
 
