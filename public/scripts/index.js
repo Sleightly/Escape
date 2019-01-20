@@ -20,7 +20,9 @@ var mouseClickX;
 var mouseClickY;
 
 function displayBorders() {
+    document.getElementById("simulationButton").style.visibility = "visible";
     canvas = document.getElementById("myCanvas");
+    canvas.style.visibility = "visible";
     canvas.height = height * factor;
     canvas.width = width * factor;
     displayLines();
@@ -119,7 +121,7 @@ function changeColor() {
 }
 
 function runSimulation() {
-    
+
 }
 
 

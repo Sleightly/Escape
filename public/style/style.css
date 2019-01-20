@@ -58,6 +58,10 @@ transform: translate(0%, -20%);
     background:red;
 }
 
+#outerLegend {
+    padding:20px;
+}
+
 #legend {
     background-color: white;
     border: 2px solid #000000;
@@ -65,7 +69,6 @@ transform: translate(0%, -20%);
     height: 175px;
     width: 150px;
     justify-content: center;
-    transform: translate(0%, 70%);
 }
 
 #keyTitle {
@@ -75,8 +78,24 @@ transform: translate(0%, -20%);
 
 #myCanvas {
     border:1px solid #d3d3d3;
-    margin-top: -50px;
     margin-left:200px;
+    visibility: hidden;
+    margin:10px;
+}
+
+#generateMaze {
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 25px;
+    font-size: 20px;
+}
+
+#simulationButton {
+    visibility: hidden;
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 25px;
+    font-size: 20px;
 }
 
 .parallax {
