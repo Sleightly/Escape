@@ -158,25 +158,47 @@ function runSimulation() {
         newdata = stringToArray(ret.d)
         for (var i = 0; i < height; i++) {
             for (var j = 0; j < width; j++) {
-                if(newdata[i][j]/3 < 1 && data[i][j] == 1) {
+                if(newdata[i][j]/2 < 1 && data[i][j] == 1) {
                     data[i][j] = 10;
                 } 
-                else if(newdata[i][j]/6 < 1 && data[i][j] == 1) {
+                else if(newdata[i][j]/4 < 1 && data[i][j] == 1) {
                     data[i][j] = 11;
                 } 
-                else if(newdata[i][j]/9 < 1 && data[i][j] == 1) {
+                else if(newdata[i][j]/6 < 1 && data[i][j] == 1) {
                     data[i][j] = 12;
                 } 
-                else if(newdata[i][j]/12 < 1 && data[i][j] == 1) {
+                else if(newdata[i][j]/8 < 1 && data[i][j] == 1) {
                     data[i][j] = 13;
+                }
+                else if(newdata[i][j]/10 < 1 && data[i][j] == 1) {
+                    data[i][j] = 14;
+                } 
+                else if(newdata[i][j]/12 < 1 && data[i][j] == 1) {
+                    data[i][j] = 15;
+                } 
+                else if(newdata[i][j]/14 < 1 && data[i][j] == 1) {
+                    data[i][j] = 16;
+                } 
+                else if(newdata[i][j]/16 < 1 && data[i][j] == 1) {
+                    data[i][j] = 17;
+                } 
+                else if(newdata[i][j]/18 < 1 && data[i][j] == 1) {
+                    data[i][j] = 18;
                 } 
                 else if(data[i][j] == 1) {
-                    data[i][j] = 14;
+                    data[i][j] = 19;
                 } 
             }
         }
         console.log(data)
-        displayColors()
+        for (var i = 0; i < height; i++) {
+            row = ""
+            for (var j = 0; j < height; j++) {
+                row += j+" "
+            }
+            console.log(row)
+        }
+        displayColors(data)
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
