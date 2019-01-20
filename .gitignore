@@ -6,4 +6,5 @@ backend/cough.wav
 backend/help.wav
 node_modules
 *.class
-
+*.wav
+.DS_Store

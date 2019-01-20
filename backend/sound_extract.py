@@ -8,11 +8,11 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.optimizers import Adam
 from keras.utils import np_utils
-from sklearn import metrics 
+from sklearn import metrics
 
-help_path = './merge_help'
-cough_path = './merge_cough'
-noise_path = './merge_noise'
+help_path = './help_merge_noise'
+cough_path = './cough_merge_noise'
+noise_path = './noise_merge_noise'
 val_path = './validate'
 
 train = []
@@ -23,13 +23,13 @@ def parser(filename, label):
     # handle exception to check if there isn't a file which is corrupted
     try:
         # here kaiser_fast is a technique used for faster extraction
-        X, sample_rate = librosa.load(filename, res_type='kaiser_fast') 
+        X, sample_rate = librosa.load(filename, res_type='kaiser_fast')
         # we extract mfcc feature from data
-        mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40).T,axis=0) 
+        mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40).T,axis=0)
     except Exception as e:
         print("Error encountered while parsing file: ", filename)
         return None, None
- 
+
     feature = mfccs
 
     return [feature, label]

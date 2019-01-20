@@ -225,11 +225,9 @@ public class MazeGenerator {
 	}
 
 	public static void main(String[] args) {
-		if(args.length==3){
-			generateMaze(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
-			removeRandomWalls(Integer.parseInt(args[2]));
+			generateMaze(10,10);
+			removeRandomWalls(10);
 			//printMaze();
 			printMazeOneLine();
-		}
 	}
 }
