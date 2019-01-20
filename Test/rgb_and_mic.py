@@ -1,133 +1,87 @@
 #coding: utf-8
-#clock = GPIO 38
-#latch = GPIO 40
-#data = GPIO 36
+#clock = GPIO 20
+#latch = GPIO 21
+#data = GPIO 16
 import RPi.GPIO as IO         # calling for header file which helps us use GPIO’s of PI
-import time                             # calling for time to provide delays in program
-print("BEGINNING")            
-IO.setmode(IO.BCM)        # programming the GPIO by BCM pin numbers.
-IO.setup(20,IO.OUT)       # clock # initialize GPIO Pins as an output.
-IO.setup(21,IO.OUT)       # latch
-IO.setup(16,IO.OUT)       # data
-i = 0
-while (i < 24):
-    print("reset values")
+import time                   # calling for time to provide delays in program
+
+def reset():
+    i = 0
+    while (i < 24):
+        print("reset values")
+        IO.output(16, 0)
+        IO.output(20, 1)
+        time.sleep(0.5)
+        IO.output(20, 0)
+        time.sleep(0.5)
+        i = i + 1
+    submit()
     IO.output(16, 0)
-    IO.output(20, 1)
-    time.sleep(0.1)
     IO.output(20, 0)
-    i = i + 1
-time.sleep(1)
-IO.output(21, 1)
-print("latch is high")
-time.sleep(1)
-IO.output(21, 0)
-print("latch is low")
-time.sleep(1)
+    IO.output(21, 0)
+    time.sleep(0.5)
 
-print("finished setup")
-IO.output(16, 0)
-IO.output(20, 0)
-IO.output(21, 0)
-print("about to start code")
-time.sleep(1)
-IO.output(16,1)  
-print("data is high")
-time.sleep(1)
-IO.output(20, 1)
-print("clock is high")
-time.sleep(1)
-IO.output(20, 0)
-time.sleep(1)
-IO.output(16,0)  
-print("data is high")
-time.sleep(1)
-IO.output(20, 1)
-print("clock is high")
-time.sleep(1)
-IO.output(20, 0)
-print("clock is low")
-time.sleep(1)
-IO.output(21, 1)
-print("latch is high")
-time.sleep(1)
-IO.output(21, 0)
-print("latch is low")
-time.sleep(1)
+def add1():
+    print("adding a one!")
+    IO.output(16,1)  
+    time.sleep(0.5)
+    IO.output(20, 1)
+    time.sleep(0.5)
+    IO.output(20, 0)
+    time.sleep(0.5)
 
+def add0():
+    print("adding a zero")
+    IO.output(16,0)  
+    time.sleep(0.5)
+    IO.output(20, 1)
+    time.sleep(0.5)
+    IO.output(20, 0)
+    time.sleep(0.5)
 
+def submit();
+    IO.output(21, 1)
+    print("latch is high")
+    time.sleep(0.5)
+    IO.output(21, 0)
+    print("latch is low")
+    time.sleep(0.5)
 
-'''
-while (i < 10):                             # execute loop forever
-    for y in range(12):            # loop for counting up 8 times
-        IO.output(36,1)            # pull up the data pin for every bit.
-        time.sleep(1)            # wait for 100ms
-        IO.output(38,1)            # pull CLOCK pin high
-        time.sleep(1)
-        IO.output(38,0)            # pull CLOCK pin down, to send a rising edge
-        time.sleep(1)
-        IO.output(36,0)            # clear the DATA pin
-        time.sleep(1)
-        IO.output(38,1)            # pull CLOCK pin high
-        time.sleep(1)
-        IO.output(38,0)   
-        time.sleep(1)
-        IO.output(40,1) 
-        time.sleep(1)
-        IO.output(40,1) 
-        time.sleep(1)
-    i = i + 1
-    console.log(i)
-    #IO.output(40,1)            # pull down the SHIFT pin
+def red():
+    add0()
+    add0()
+    add1()
 
-    for y in range(24):            # loop for counting up 8 times
-        IO.output(4,0)            # clear the DATA pin, to send 0
-        time.sleep(0.1)            # wait for 100ms
-        IO.output(5,1)            # pull CLOCK pin high
-        time.sleep(0.1)
-        IO.output(5,0)            # pull CLOCK pin down, to send a rising edge
-        IO.output(4,0)            # keep the DATA bit low to keep the countdown
-        IO.output(6,1)            # pull the SHIFT pin high to put the 8 bit data out parallel
-        time.sleep(0.1)
-        IO.output(6,0)
-'''
+def green():
+    add0()
+    add1()
+    add0()
 
-'''import mraa
-import time
-print (mraa.getVersion())
+def blue():
+    add1()
+    add0()
+    add0()
 
-red = mraa.Gpio(30)
-red.dir(mraa.DIR_OUT)
-red.write(0)
+def off():
+    add0()
+    add0()
+    add0()
 
-green = mraa.Gpio(32)
-green.dir(mraa.DIR_OUT)
-green.write(0)
+if __name__ == "__main__":
+    print("BEGINNING")            
+    IO.setmode(IO.BCM)          # programming the GPIO by BCM pin numbers.
+    IO.setup(20,IO.OUT)         # clock
+    IO.setup(21,IO.OUT)         # latch
+    IO.setup(16,IO.OUT)         # data
+    
+    reset()                     # reset values
 
-blue = mraa.Gpio(34)
-blue.dir(mraa.DIR_OUT)
-blue.write(0)
-
-#Changes to each color every 5 seconds
-while True:
-    red.write(1)
-    time.sleep(5)
-    red.write(0)
-    green.write(1)
-    time.sleep(5)
-    green.write(0)
-    blue.write(1)
-    time.sleep(5)
-    blue.write(0)
-
-#Microphone. LED turns red when something is detected
-
-mic = mraa.Gpio()
-mic.dir(mraa.DIR_IN)
-
-while True:
-    if int(mic.read()):
-        red.write(1)
-    else
-        red.write(0)
-'''
+    print("about to start code")# putting in one set of 24 values
+    off()
+    off()
+    red()
+    off()
+    green()
+    off()
+    green()
+    red()
