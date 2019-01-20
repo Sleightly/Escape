@@ -1,6 +1,7 @@
 var http = require('http'),
     express = require('express'),
     path = require('path'),
+    bodyParser = require('body-parser'),
     StringDecoder = require('string_decoder').StringDecoder;
 
 
@@ -10,7 +11,8 @@ var decoder = new StringDecoder('utf8');
 const PORT = process.env.PORT || 1500
 
 var app = express();
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname+'/public/views'));
 app.use(express.static(__dirname+'/public/style'));
 app.use(express.static(__dirname+'/public/scripts'));
@@ -21,23 +23,28 @@ app.get('/', function(req, res){
 })
 
 app.post('/gen', function(req, res){
-	const child = execFile('MazeGenerator', ['10,10,10'], (error, stdout, stderr) => {
-	    if (error) {
-	        console.error('stderr', stderr);
-	        throw error;
+	var exec = require('child_process').exec, child;
+	child = exec('java -jar ./MazeGenerator.jar',
+	  function (error, stdout, stderr){
+	    res.send({d:stdout})
+	    if(error !== null){
+	      console.log('exec error: ' + error);
 	    }
-	    console.log('stdout', stdout);
 	});
 })
 
 
 app.post('/sim', function(req, res){
 	var input = req.body.input
-	var pro = spawn('java',["./PathGenerator.java", 
-                            input] ); 
-    pro.stdout.on('data', function(data) { 
-        res.send({d:data.toString()}); 
-    }) 
+	var exec = require('child_process').exec, child;
+	child = exec('java -jar ./PathGen.jar'+" "+'\"'+input+'\"',
+	  function (error, stdout, stderr){
+	  	console.log(stdout)
+	    res.send({d:stdout.toString()}); 
+	    if(error !== null){
+	      console.log('exec error: ' + error);
+	    }
+	});
 })
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
