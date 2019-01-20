@@ -1,16 +1,13 @@
-#coding: utf-8
 #clock = GPIO 38
 #latch = GPIO 40
 #data = GPIO 36
 import RPi.GPIO as IO         # calling for header file which helps us use GPIO’s of PI
 import time                             # calling for time to provide delays in program
-IO.setwarnings(False)           # do not show any warnings
-x=1                
+console.log("BEGINNING")            
 IO.setmode(IO.BCM)        # programming the GPIO by BCM pin numbers. (like PIN29 as‘GPIO5’)
 IO.setup(38,IO.OUT)       # clock # initialize GPIO Pins as an output.
 IO.setup(40,IO.OUT)       # latch
 IO.setup(36,IO.OUT)       # data
-i = 0
 console.log("finished setup")
 IO.output(36, 0)
 IO.output(38, 0)
