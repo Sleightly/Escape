@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sleightly/Escape/issues"
   },
-  "homepage": "https://github.com/Sleightly/Escape#readme"
+  "homepage": "https://github.com/Sleightly/Escape#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
