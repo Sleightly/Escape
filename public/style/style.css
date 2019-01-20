@@ -85,5 +85,8 @@ transform: translate(0%, -20%);
     visibility: hidden;
     margin-top: -50px;
     margin-left:200px;
+}
 
+#simulationButton {
+  visibility: hidden;
 }
