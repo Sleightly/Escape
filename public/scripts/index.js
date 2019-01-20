@@ -70,32 +70,57 @@ function displayColors(grid) {
             } else if (grid[i][j] == 4) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "green";
+                ctx.fillStyle = "#e0fde0";
                 ctx.fill();
             } else if (grid[i][j] == 10) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#eee8f3";
+                ctx.fillStyle = "#f2e5f2";
                 ctx.fill();
             } else if (grid[i][j] == 11) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#ccbadc";
+                ctx.fillStyle = "#d8b2d8";
                 ctx.fill();
             } else if (grid[i][j] == 12) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#aa8cc5";
+                ctx.fillStyle = "#bf7fbf";
                 ctx.fill();
             } else if (grid[i][j] == 13) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#885ead";
+                ctx.fillStyle = "#a64ca6";
                 ctx.fill();
             } else if (grid[i][j] == 14) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "#663096";
+                ctx.fillStyle = "#993299";
+                ctx.fill();
+            } else if (grid[i][j] == 15) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#8c198c";
+                ctx.fill();
+            } else if (grid[i][j] == 16) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#800080";
+                ctx.fill();
+            } else if (grid[i][j] == 17) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#730073";
+                ctx.fill();
+            } else if (grid[i][j] == 18) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#660066";
+                ctx.fill();
+            } else if (grid[i][j] == 19) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#590059";
                 ctx.fill();
             }
         }
