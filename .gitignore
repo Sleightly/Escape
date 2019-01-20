@@ -1,0 +1,5 @@
+backend/training_images
+backend/test_images
+backend/models
+backend/bottleneck_data
+backend/tensorboard_logs
