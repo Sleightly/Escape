@@ -1,8 +1,10 @@
-//gets the height and width information
-/*app.get("/getMembers", (req, res) => {
-    let id = req.session.lock;
-    mod.getLockMembers(id, function(members) {res.send({members: members});});
-  })*/
+//W = 0, R = 1, D = 2
+var data = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 1, 2, 1],
+    [0, 2, 0, 2, 0, 0],
+    [0, 1, 2, 1, 0, 0],
+  ];
 var height;
 var width;
 var canvas;
