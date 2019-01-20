@@ -165,9 +165,15 @@ function changeColor() {
     } else if (data[mouseClickY][mouseClickX] == 5) {
         ctx.beginPath();
         ctx.rect(mouseClickX*factor, mouseClickY*factor, factor - 1, factor - 1);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "#7fbf7f";
         ctx.fill();
         data[mouseClickY][mouseClickX] = 4;
+    } else if (data[mouseClickY][mouseClickX] >= 10) {
+        ctx.beginPath();
+        ctx.rect(mouseClickX*factor, mouseClickY*factor, factor - 1, factor - 1);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        data[mouseClickY][mouseClickX] = 1;
     }
 }
 
