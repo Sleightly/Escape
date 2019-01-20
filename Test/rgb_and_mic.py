@@ -10,7 +10,8 @@ IO.setmode(IO.BCM)        # programming the GPIO by BCM pin numbers. (like PIN29
 IO.setup(38,IO.OUT)       # clock # initialize GPIO Pins as an output.
 IO.setup(40,IO.OUT)       # latch
 IO.setup(36,IO.OUT)       # data
-while 1:                               # execute loop forever
+i = 0;
+while (i < 10):                               # execute loop forever
     for y in range(12):            # loop for counting up 8 times
         IO.output(36,1)            # pull up the data pin for every bit.
         time.sleep(1)            # wait for 100ms
@@ -24,9 +25,10 @@ while 1:                               # execute loop forever
         time.sleep(1)
         IO.output(38,0)   
         time.sleep(1)
-        IO.output(40,1)  
-
-  #  IO.output(40,1)            # pull down the SHIFT pin
+        #IO.output(40,1)  
+    i++;
+    console.log(i);
+  IO.output(40,1)            # pull down the SHIFT pin
 '''
     for y in range(24):            # loop for counting up 8 times
         IO.output(4,0)            # clear the DATA pin, to send 0
