@@ -39,14 +39,14 @@
           </div>
         </div>
       </div>
-      <span>
-          <button id="generateMaze" onclick="generateMaze()">Generate Maze</button>
-          <button id="simulationButton" onclick="runSimulation()"> Run Simulation </button>
-      </span>
       <div>
-          <canvas id="myCanvas">
-          </canvas>
+          <button id="generateMaze" onclick="generateMaze()">Generate Maze</button>
+          <button id="simulationButton" onclick="runSimulation()" disabled> Run Simulation </button>
       </div>
+    </div>
+    <div id = "center">
+        <canvas id="myCanvas">
+        </canvas>
     </div>
 
     <script src="index.js"></script>

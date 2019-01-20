@@ -25,7 +25,8 @@ function generateMaze() {
 }
 
 function displayBorders() {
-    document.getElementById("simulationButton").style.visibility = "visible";
+    document.getElementById("simulationButton").disabled = false;
+    document.getElementById("simulationButton").style.backgroundColor = "white";
     canvas = document.getElementById("myCanvas");
     canvas.style.visibility = "visible";
     canvas.height = height * factor;
