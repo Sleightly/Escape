@@ -1,8 +1,12 @@
+body {
+    background-image: linear-gradient(#280000, #510001);
+    opacity: 0.9;
+}
 h1 {
   left: 40%;
   text-align: center;
   position: absolute;
-  opacity: 0.5;
+  opacity: 1 !important;
   color: black;
   font-family: "Roboto", sans-serif;
   font-size: 100px;
@@ -26,7 +30,11 @@ form {
     z-index: 1000;
     left: 40%;
 }
-
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #blackKey{
     width:20px;
     height:20px;
@@ -74,6 +82,7 @@ form {
     height: 175px;
     width: 150px;
     justify-content: center;
+    border-radius: 5px;
 }
 
 #keyTitle {
@@ -93,14 +102,16 @@ form {
     border-radius: 4px;
     margin-left: 25px;
     font-size: 20px;
+    border-color:black;
 }
 
 #simulationButton {
-    visibility: hidden;
     padding: 5px;
     border-radius: 4px;
     margin-left: 50px;
     font-size: 20px;
+    background-color:grey;
+    border-color:black;
 }
 
 .parallax {

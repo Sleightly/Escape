@@ -77,7 +77,7 @@ if __name__ == "__main__":
     
     reset()                     # reset values
 
-    print("about to start code")# putting in one set of 24 values
+    print("fire in one room (top left)")# putting in one set of 24 values
     off()
     off()
     red()
@@ -87,3 +87,33 @@ if __name__ == "__main__":
     green()
     red()
     submit()
+
+    time.sleep(10)
+
+    reset()
+
+    print("fire in three rooms, trapped person in top left")# putting in one set of 24 values
+    blue()
+    blue()
+    off() #all the other light are off?
+    off()
+    off()
+    off()
+    off()
+    off()
+    submit()
+
+    time.sleep(10)
+    reset()
+
+    print("random lights")# putting in one set of 24 values
+    blue()
+    red()
+    red() #all the other light are off?
+    green()
+    blue()
+    blue()
+    green()
+    red()
+    submit()
+

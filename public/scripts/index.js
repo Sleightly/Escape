@@ -20,12 +20,18 @@ var mouseClickX;
 var mouseClickY;
 
 function generateMaze() {
-    displayBorders();
-    //add code here
+    console.log("here")
+    $.ajax({
+      url : "/gen",
+      type: "POST",
+    }).done(function(data){
+        console.log(data)
+    })
 }
 
 function displayBorders() {
-    document.getElementById("simulationButton").style.visibility = "visible";
+    document.getElementById("simulationButton").disabled = false;
+    document.getElementById("simulationButton").style.backgroundColor = "white";
     canvas = document.getElementById("myCanvas");
     canvas.style.visibility = "visible";
     canvas.height = height * factor;
@@ -126,8 +132,39 @@ function changeColor() {
 }
 
 function runSimulation() {
-
+    $.ajax({
+      url : "/sim",
+      type: "POST",
+      data : {
+              data: arrayToString()
+             },
+      success: function(ret, textStatus, jqXHR)
+      {
+        data = stringToArray(ret.d)
+        displayColors()
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+       
+      }
+    });
 }
 
+function arrayToString() {
+    var output = ""
+    for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].length; j++) {
+            output += ""+data[i]+" "
+        }
+    }
+    output = output.substring(0, output.length - 1);
+    return output
+}
 
+function stringToArray(d) {
+    var res = d.split(" ").filter(function () { return true });
+    for (var i = 0; i < res; i++) {
+        data[i/data.length][i%data.length] = parseInt(res[i]);
+    }
+}
 
