@@ -72,6 +72,31 @@ function displayColors(grid) {
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
                 ctx.fillStyle = "green";
                 ctx.fill();
+            } else if (grid[i][j] == 10) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#eee8f3";
+                ctx.fill();
+            } else if (grid[i][j] == 11) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#ccbadc";
+                ctx.fill();
+            } else if (grid[i][j] == 12) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#aa8cc5";
+                ctx.fill();
+            } else if (grid[i][j] == 13) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#885ead";
+                ctx.fill();
+            } else if (grid[i][j] == 14) {
+                ctx.beginPath();
+                ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
+                ctx.fillStyle = "#663096";
+                ctx.fill();
             }
         }
     }
