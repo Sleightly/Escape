@@ -37,5 +37,30 @@ function displayLines() {
         ctx.lineTo(width, (i+1)*100);
         ctx.stroke();
     }
+    displayColors(data);
+}
+
+function displayColors(grid) {
+    for(var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
+            if (grid[i][j] == 0) {
+                ctx.beginPath();
+                ctx.rect(j*100, i*100, 100, 100);
+                ctx.fillStyle = "black";
+                ctx.fill();
+            } else if (grid[i][j] == 1) {
+                ctx.beginPath();
+                ctx.rect(j*100, i*100, 100, 100);
+                ctx.fillStyle = "white";
+                ctx.fill();
+            } else {
+                ctx.beginPath();
+                ctx.rect(j*100, i*100, 100, 100);
+                ctx.fillStyle = "blue";
+                ctx.fill();
+            }
+        }
+    }
+
 }
 
