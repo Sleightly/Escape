@@ -11,35 +11,36 @@ def reset():
         print("reset values")
         IO.output(16, 0)
         IO.output(20, 1)
-        time.sleep(0.5)
+        time.sleep(0.1)
         IO.output(20, 0)
-        time.sleep(0.5)
+        time.sleep(0.1)
         i = i + 1
     submit()
     IO.output(16, 0)
     IO.output(20, 0)
     IO.output(21, 0)
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 def add1():
     print("adding a one!")
     IO.output(16,1)  
-    time.sleep(0.5)
+    time.sleep(0.1)
     IO.output(20, 1)
-    time.sleep(0.5)
+    time.sleep(0.1)
     IO.output(20, 0)
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 def add0():
     print("adding a zero")
     IO.output(16,0)  
-    time.sleep(0.5)
+    time.sleep(0.1)
     IO.output(20, 1)
-    time.sleep(0.5)
+    time.sleep(0.1)
     IO.output(20, 0)
-    time.sleep(0.5)
+    time.sleep(0.1)
 
-def submit();
+def submit():
+    time.sleep(0.5)
     IO.output(21, 1)
     print("latch is high")
     time.sleep(0.5)
@@ -76,7 +77,7 @@ if __name__ == "__main__":
     
     reset()                     # reset values
 
-    print("about to start code")# putting in one set of 24 values
+    print("fire in one room (top left)")# putting in one set of 24 values
     off()
     off()
     red()
@@ -85,3 +86,34 @@ if __name__ == "__main__":
     off()
     green()
     red()
+    submit()
+
+    time.sleep(10)
+
+    reset()
+
+    print("fire in three rooms, trapped person in top left")# putting in one set of 24 values
+    blue()
+    blue()
+    off() #all the other light are off?
+    off()
+    off()
+    off()
+    off()
+    off()
+    submit()
+
+    time.sleep(10)
+    reset()
+
+    print("random lights")# putting in one set of 24 values
+    blue()
+    red()
+    red() #all the other light are off?
+    green()
+    blue()
+    blue()
+    green()
+    red()
+    submit()
+

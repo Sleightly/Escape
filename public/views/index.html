@@ -7,12 +7,10 @@
     <title>Escape</title>
   </head>
   <body>
+    <h1 id="title">Escape</h1>
     <div class="parallax">
-      <div class="title">
-        <h1>Escape</h1>
-      </div>
     </div>
-    <div>
+    <div id="center">
       <div id="outerLegend">
         <div id="legend">
           <h3 id="keyTitle">Key:</h3>
@@ -46,10 +44,10 @@
           <button id="generateMaze" onclick="generateMaze()">Generate Maze</button>
           <button id="simulationButton" onclick="runSimulation()"> Run Simulation </button>
       </span>
-    </div>
-    <div>
-      <canvas id="myCanvas">
-      </canvas>
+      <div>
+          <canvas id="myCanvas">
+          </canvas>
+      </div>
     </div>
 
     <script src="index.js"></script>

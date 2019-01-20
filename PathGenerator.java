@@ -126,7 +126,7 @@ public class PathGenerator {
 				//if(maze[y][x].isOpen() && maze[y][x].type!=DOOR){
 					System.out.print(maze[y][x].dist+" ");
 				//}else {
-				//	System.out.print(" ");
+				//s	System.out.print(" ");
 				//}
 			}
 		}
