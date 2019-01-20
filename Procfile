@@ -1,3 +1,3 @@
-web:node server.js
-web:java -jar MazeGenerator.jar
-web:java -jar PathGen.jar
+web: node server.js
+web: java -jar MazeGenerator.jar
+web: java -jar PathGen.jar
