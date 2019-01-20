@@ -12,46 +12,44 @@
         <h1>Escape</h1>
       </div>
     </div>
-    <div id="outerLegend">
-      <div id="legend">
-        <h3 id="keyTitle">Key:</h3>
-        <div>
-            <canvas id = "blackKey"></canvas>
-            Wall
-        </div>
-        <div>
-            <canvas id = "whiteKey"></canvas>
-            Room
-        </div>
-        <div>
-            <canvas id = "blueKey"></canvas>
-            Human
-        </div>
-        <div>
-            <canvas id = "orangeKey"></canvas>
-            Fire
-        </div>
-        <div>
-            <canvas id = "greenKey"></canvas>
-            Door
-        </div>
-        <div>
-            <canvas id = "redKey"></canvas>
-            Blocked Door
+    <div>
+      <div id="outerLegend">
+        <div id="legend">
+          <h3 id="keyTitle">Key:</h3>
+          <div>
+              <canvas id = "blackKey"></canvas>
+              Wall
+          </div>
+          <div>
+              <canvas id = "whiteKey"></canvas>
+              Room
+          </div>
+          <div>
+              <canvas id = "blueKey"></canvas>
+              Human
+          </div>
+          <div>
+              <canvas id = "orangeKey"></canvas>
+              Fire
+          </div>
+          <div>
+              <canvas id = "greenKey"></canvas>
+              Door
+          </div>
+          <div>
+              <canvas id = "redKey"></canvas>
+              Blocked Door
+          </div>
         </div>
       </div>
+      <span>
+          <button id="generateMaze" onclick="generateMaze()">Generate Maze</button>
+          <button id="simulationButton" onclick="runSimulation()"> Run Simulation </button>
+      </span>
     </div>
     <div>
-      <button id="generateMaze" onclick="displayBorders()">Generate Maze</button>
-    </div>
-    <div>
-      <div>
-        <canvas id="myCanvas">
-        </canvas>
-      </div>
-    </div>
-    <div>
-      <button id="simulationButton" onclick="runSimulation()"> Run Simulation </button>
+      <canvas id="myCanvas">
+      </canvas>
     </div>
 
     <script src="index.js"></script>
