@@ -10,8 +10,21 @@
       <h1>Escape</h1>
     </div>
     <div>
+      <div>
+          <h3>Instructions</h3>
+          <ol>
+            <li>
+              Input the dimensions of the building
+            </li>
+            <li>
+              Click on the rooms and doors to change their status
+            </li>
+            <li>
+              Click Run Simulation to generate paths
+            </li>
+          </ol>
+        </div>
       <form>
-        <h3>Please input the dimensions of the building</h3>
         <h4>Height: <input type="number" name="height" value=0> </h4>
         <h4>Width: <input type="number" name="width" value=0> </h4>
         <input type="button" onclick="getDimensions()" value="Submit">
@@ -46,13 +59,15 @@
       </div>
     </div>
   </div>
+  <div>
     <div>
       <canvas id="myCanvas">
       </canvas>
     </div>
   
+  </div>
     <div>
-      <button> Run Simulation </button>
+      <button id="simulationButton"> Run Simulation </button>
     </div>
 
     <script src="index.js"></script>

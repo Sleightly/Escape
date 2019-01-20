@@ -21,6 +21,7 @@ function getDimensions() {
 }
 
 function displayBorders() {
+    document.getElementById("simulationButton").style.visibility = "visible";
     canvas = document.getElementById("myCanvas");
     canvas.style.visibility = "visible";
     canvas.height = height;
