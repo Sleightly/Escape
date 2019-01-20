@@ -119,8 +119,49 @@ function changeColor() {
 }
 
 function runSimulation() {
-    
+
+    $.ajax({
+      url : "/sim",
+      type: "POST",
+      data : {
+              data: data
+             },
+      success: function(ret, textStatus, jqXHR)
+      {
+        $("#points").text(data.points);
+        $("#name").text(data.out_name);
+        var theme = data.theme
+        var $nav = $('nav');
+        var curTheme = theme.replace(/([A-Z])/g, '-$1').toLowerCase() + "-bg";
+        $nav.addClass(curTheme);
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+       
+      }
+    });
 }
 
+function arrayToString() {
+    var output = ""
+    for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].length; j++) {
+            output += ""+data[i]+" "
+        }
+    }
+    output = output.substring(0, output.length - 1);
+    return output
+}
 
+function stringToArray(d) {
+    var res = d.split(" ")
+    var output = ""
+    for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].length; j++) {
+            output += ""+data[i]+" "
+        }
+    }
+    output = output.substring(0, output.length - 1);
+    return output
+}
 

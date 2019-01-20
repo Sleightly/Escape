@@ -1,6 +1,7 @@
 var http = require('http'),
     express = require('express'),
-    path = require('path');
+    path = require('path'),
+    spawn = require('child_process');
 
 const PORT = process.env.PORT || 1500
 
@@ -13,6 +14,15 @@ app.use(express.static(__dirname+'/public/media'));
 
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+"/public/views", 'index.html'));
+})
+
+app.get('/gen', function(req, res){
+  
+})
+
+
+app.get('/sim', function(req, res){
+  
 })
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
