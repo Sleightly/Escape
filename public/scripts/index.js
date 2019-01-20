@@ -118,6 +118,9 @@ function changeColor() {
     }
 }
 
+function runSimulation() {
+    
+}
 
 
 
