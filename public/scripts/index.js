@@ -19,6 +19,11 @@ var ctx;
 var mouseClickX;
 var mouseClickY;
 
+function generateMaze() {
+    displayBorders();
+    //add code here
+}
+
 function displayBorders() {
     document.getElementById("simulationButton").style.visibility = "visible";
     canvas = document.getElementById("myCanvas");
