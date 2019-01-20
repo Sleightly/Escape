@@ -1,19 +1,8 @@
 //W = 0, R = 1, H = 2, F = 3, D = 4, B = 5
-var data = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 1, 4, 1, 0, 0, 0, 0],
-    [0, 4, 0, 4, 0, 0, 0, 0, 0, 0],
-    [0, 1, 4, 1, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 1, 4, 1, 0, 0, 0, 0],
-    [0, 4, 0, 4, 0, 0, 0, 0, 0, 0],
-    [0, 1, 4, 1, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 1, 4, 1, 0, 0, 0, 0],
-  ];
-var height = 10;
-var width = 10;
-var factor = 50;
+var data;
+var height = 21;
+var width = 21;
+var factor = 20;
 var canvas;
 var ctx;
 var mouseClickX;
@@ -24,8 +13,9 @@ function generateMaze() {
     $.ajax({
       url : "/gen",
       type: "POST",
-    }).done(function(data){
-        console.log(data)
+    }).done(function(d){
+        data = stringToArray(d.d)
+        displayBorders()
     })
 }
 
@@ -65,8 +55,8 @@ function displayLines() {
 }
 
 function displayColors(grid) {
-    for(var i = 0; i < 10; i++) {
-        for (var j = 0; j < 10; j++) {
+    for(var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
             if (grid[i][j] == 0) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
@@ -136,11 +126,12 @@ function runSimulation() {
       url : "/sim",
       type: "POST",
       data : {
-              data: arrayToString()
+              input:arrayToString(),
              },
       success: function(ret, textStatus, jqXHR)
       {
         data = stringToArray(ret.d)
+        console.log(data)
         displayColors()
       },
       error: function (jqXHR, textStatus, errorThrown)
@@ -152,19 +143,26 @@ function runSimulation() {
 
 function arrayToString() {
     var output = ""
-    for (var i = 0; i < data.length; i++) {
-        for (var j = 0; j < data[i].length; j++) {
-            output += ""+data[i]+" "
+    for (var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
+            output += data[i][j].toString()+" "
         }
     }
     output = output.substring(0, output.length - 1);
-    return output
+    return output.toString()
 }
 
 function stringToArray(d) {
+    var newGrid = [];
     var res = d.split(" ").filter(function () { return true });
-    for (var i = 0; i < res; i++) {
-        data[i/data.length][i%data.length] = parseInt(res[i]);
+    var row = []
+    for (var i = 0; i < res.length; i++) {
+        if (i % 21 == 0 && i > 5) {
+            newGrid.push(row)
+            row = []
+        }
+        row.push(parseInt(res[i]))
     }
+    return newGrid
 }
 
