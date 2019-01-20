@@ -28,7 +28,7 @@ while (i < 10):                               # execute loop forever
         #IO.output(40,1)  
     i++;
     console.log(i);
-  IO.output(40,1)            # pull down the SHIFT pin
+    IO.output(40,1)            # pull down the SHIFT pin
 '''
     for y in range(24):            # loop for counting up 8 times
         IO.output(4,0)            # clear the DATA pin, to send 0
