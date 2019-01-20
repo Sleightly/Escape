@@ -14,7 +14,7 @@ while (i < 24):
     print("reset values")
     IO.output(16, 0)
     IO.output(20, 1)
-    time.sleep(1)
+    time.sleep(0.1)
     IO.output(20, 0)
     i = i + 1
 time.sleep(1)
