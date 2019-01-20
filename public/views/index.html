@@ -3,24 +3,54 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <title>Escape</title>
   </head>
   <body>
     <div>
       <h1>Escape</h1>
     </div>
     <div>
-      <form action= >
+      <form>
+        <h3>Please input the dimensions of the building</h3>
         <h4>Height: <input type="number" name="height" value=0> </h4>
         <h4>Width: <input type="number" name="width" value=0> </h4>
         <input type="button" onclick="getDimensions()" value="Submit">
       </form>
     </div>
     <div>
-      <canvas id="myCanvas" width="" height=""
-      style="border:1px solid #d3d3d3;">
+    <div id="legend">
+      <h3 id="keyTitle">Key:</h3>
+      <div>
+          <canvas id = "blackKey"></canvas>
+          Wall
+      </div>
+      <div>
+          <canvas id = "whiteKey"></canvas>
+          Room
+      </div>
+      <div>
+          <canvas id = "blueKey"></canvas>
+          Human
+      </div>
+      <div>
+          <canvas id = "orangeKey"></canvas>
+          Fire
+      </div>
+      <div>
+          <canvas id = "greenKey"></canvas>
+          Door
+      </div>
+      <div>
+          <canvas id = "redKey"></canvas>
+          Blocked Door
+      </div>
+    </div>
+  </div>
+    <div>
+      <canvas id="myCanvas">
       </canvas>
     </div>
+  
     <div>
       <button> Run Simulation </button>
     </div>

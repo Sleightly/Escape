@@ -22,6 +22,7 @@ function getDimensions() {
 
 function displayBorders() {
     canvas = document.getElementById("myCanvas");
+    canvas.style.visibility = "visible";
     canvas.height = height;
     canvas.width = width;
     canvas.addEventListener('click', function(evt) {

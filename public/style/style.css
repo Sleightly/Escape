@@ -2,6 +2,56 @@ h1 {
     color:blue;
   }
 
-select {
-    z-index: 1000;
+#blackKey{
+    width:20px;
+    height:20px;
+    background:black;
+}
+
+#whiteKey{
+    width:18px;
+    height:18px;
+    border:1px solid #000000;
+}
+
+#blueKey{
+    width:20px;
+    height:20px;
+    background:blue;
+}
+
+#orangeKey{
+    width:20px;
+    height:20px;
+    background:orange;
+}
+
+#greenKey{
+    width:20px;
+    height:20px;
+    background:green;
+}
+
+#redKey{
+    width:20px;
+    height:20px;
+    background:red;
+}
+
+#legend {
+    border: 2px solid #000000;
+    padding: 2px;
+    height: 175px;
+    width: 150px;
+    justify-content: center;
+}
+
+#keyTitle {
+    margin-block-end: 5px;
+    margin-block-start: 3px;
+}
+
+#myCanvas {
+    border:1px solid #d3d3d3;
+    visibility: hidden;
 }
