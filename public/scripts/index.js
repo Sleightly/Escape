@@ -80,7 +80,7 @@ function displayColors(grid) {
             } else if (grid[i][j] == 4) {
                 ctx.beginPath();
                 ctx.rect(j*factor, i*factor, factor - 1, factor - 1);
-                ctx.fillStyle = "green";
+                ctx.fillStyle = "#00FF00";
                 ctx.fill();
             }
         }
